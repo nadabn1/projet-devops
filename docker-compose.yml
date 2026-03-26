@@ -1,0 +1,15 @@
+services:
+
+  backend:
+    build: ./apk-formulaire
+    container_name: backend
+    ports:
+      - "8080:8080"
+
+  frontend:
+    build: ./formulaire-ui/frontend  
+    container_name: frontend
+    ports:
+      - "4200:80"
+    depends_on:
+      - backend
