@@ -15,9 +15,10 @@ spec:
       containers:
         - name: backend
           image: backend-app
-          imagePullPolicy: Never   # 🔥 IMPORTANT
+          imagePullPolicy: Never
           ports:
             - containerPort: 8080
+
 ---
 apiVersion: v1
 kind: Service
@@ -29,3 +30,5 @@ spec:
   ports:
     - port: 8080
       targetPort: 8080
+
+# test argocd
