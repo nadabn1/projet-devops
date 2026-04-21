@@ -1,0 +1,22 @@
+﻿# Secrets - NE JAMAIS VERSIONNER
+.env
+*.env
+
+# Build artifacts
+apk-formulaire/target/
+formulaire-ui/frontend/node_modules/
+formulaire-ui/frontend/dist/
+
+# IDE
+.idea/
+*.iml
+*.class
+
+# Logs
+*.log
+
+# Docker volumes
+postgres_data/
+
+# Script setup (contient le token)
+setup-gitlab.ps1
