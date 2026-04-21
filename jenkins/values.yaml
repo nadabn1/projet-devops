@@ -1,4 +1,4 @@
-﻿# Default values for jenkins.
+# Default values for jenkins.
 # This is a YAML-formatted file.
 # Declare name/value pairs to be passed into your templates.
 # name: value
@@ -232,7 +232,7 @@ controller:
   # For minikube, set this to NodePort, elsewhere uses LoadBalancer
   # Use ClusterIP if your setup includes ingress controller
   # -- k8s service type
-  serviceType: NodePort
+  serviceType: ClusterIP
 
   # -- k8s service clusterIP. Only used if serviceType is ClusterIP
   clusterIp:
@@ -241,7 +241,7 @@ controller:
   # -- k8s target port
   targetPort: 8080
   # -- k8s node port. Only used if serviceType is NodePort
-  nodePort: 32000
+  nodePort:
 
   # Use Local to preserve the client source IP and avoids a second hop for LoadBalancer and NodePort type services,
   # but risks potentially imbalanced traffic spreading.
@@ -879,7 +879,7 @@ controller:
     prometheusRuleNamespace: ""
 
     # RelabelConfigs to apply to samples before scraping. Prometheus Operator automatically adds
-    # relabelings for a few standard Kubernetes fields. The original scrape jobÔÇÖs name
+    # relabelings for a few standard Kubernetes fields. The original scrape job’s name
     # is available via the __tmp_prometheus_job_name label.
     # More info: https://prometheus.io/docs/prometheus/latest/configuration/configuration/#relabel_config
     relabelings: []
@@ -1430,4 +1430,3 @@ helmtest:
       repository: "bats/bats"
       # -- Tag of the image to test the framework
       tag: "1.13.0"
-

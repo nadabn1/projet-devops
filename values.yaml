@@ -1,0 +1,9 @@
+controller:
+  servicePort: 8080
+  ingress:
+    enabled: true
+    ingressClassName: nginx
+    hostName: jenkins.local
+    annotations:
+      nginx.ingress.kubernetes.io/rewrite-target: /
+    tls: []
