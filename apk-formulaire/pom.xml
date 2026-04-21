@@ -25,6 +25,13 @@
 
 	<dependencies>
 
+		<!-- 🔥 PostgreSQL (PRODUCTION) -->
+		<dependency>
+			<groupId>org.postgresql</groupId>
+			<artifactId>postgresql</artifactId>
+			<scope>runtime</scope>
+		</dependency>
+
 		<!-- API REST -->
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -43,7 +50,7 @@
 			<artifactId>spring-boot-starter-validation</artifactId>
 		</dependency>
 
-		<!-- H2 Database -->
+		<!-- 🟡 H2 (DEV uniquement) -->
 		<dependency>
 			<groupId>com.h2database</groupId>
 			<artifactId>h2</artifactId>
@@ -57,7 +64,7 @@
 			<optional>true</optional>
 		</dependency>
 
-		<!-- Swagger / OpenAPI -->
+		<!-- Swagger -->
 		<dependency>
 			<groupId>org.springdoc</groupId>
 			<artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
@@ -76,6 +83,7 @@
 	<build>
 		<plugins>
 
+			<!-- Compiler -->
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
 				<artifactId>maven-compiler-plugin</artifactId>
@@ -89,6 +97,7 @@
 				</configuration>
 			</plugin>
 
+			<!-- Spring Boot -->
 			<plugin>
 				<groupId>org.springframework.boot</groupId>
 				<artifactId>spring-boot-maven-plugin</artifactId>

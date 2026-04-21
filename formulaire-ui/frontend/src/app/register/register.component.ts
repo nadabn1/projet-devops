@@ -12,39 +12,38 @@ import { Router } from '@angular/router';
 })
 export class RegisterComponent {
 
-  user:any = {};
+  user: any = {
+    firstName: '',
+    lastName: '',
+    email: '',
+    password: '',
+    phone: '',
+    country: ''
+  };
 
   constructor(
-    private userService:UserService,
-    private router:Router
-  ){}
+    private userService: UserService,
+    private router: Router
+  ) {}
 
- register(){
+  register() {
 
-this.userService.register(this.user).subscribe({
+    console.log("CLICKED REGISTER");
+    console.log(this.user);
 
-next: (res) => {
+    this.userService.register(this.user).subscribe({
 
-console.log(res);
+      next: (res) => {
+        console.log("SUCCESS", res);
+        alert("Inscription validée ✅");
+        this.router.navigate(['/success']);
+      },
 
-alert("Inscription validée");
+      error: (err) => {
+        console.error("Erreur backend :", err);
+        alert("Erreur lors de l'inscription ❌");
+      }
 
-this.router.navigate(['/success']);
-
-},
-
-error: (err) => {
-
-console.log("Erreur backend :", err);
-
-alert("Inscription validée");
-
-this.router.navigate(['/success']);
-
-}
-
-});
-
-}
-
+    });
   }
+}
